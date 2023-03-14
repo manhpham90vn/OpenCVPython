@@ -2,7 +2,8 @@ import cv2
 import numpy as np
 
 img = cv2.imread('assets/imgs/img.png')
-gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+#gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+_, _, gray = cv2.split(img) # only g chanel
 
 ret,thresh = cv2.threshold(gray,50,255,0)
 contours,hierarchy = cv2.findContours(thresh, 1, 2)
